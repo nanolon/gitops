@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitOps Workshop - Live Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            max-width: 800px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #4CAF50;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .status-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .status-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .status-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .gitops-flow {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .flow-title {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .flow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .flow-step {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
+            font-size: 0.9rem;
+        }
+        
+        .arrow {
+            font-size: 1.5rem;
+            color: #4CAF50;
+        }
+        
+        .demo-info {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        
+        .demo-title {
+            color: #1976d2;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .flow-steps {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo pulse">🚀</div>
+        <h1>GitOps Workshop</h1>
+        <div class="subtitle">Live Demonstration - Branch: feature/landing-page</div>
+        
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-label">Deployment</div>
+                <div class="status-value">✅ Active</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">Git Branch</div>
+                <div class="status-value">feature/landing-page</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">Sync Status</div>
+                <div class="status-value">🔄 Synced</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">Environment</div>
+                <div class="status-value">Demo</div>
+            </div>
+        </div>
+        
+        <div class="gitops-flow">
+            <div class="flow-title">GitOps Workflow</div>
+            <div class="flow-steps">
+                <div class="flow-step">📝 Git Commit</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">👀 ArgoCD Monitor</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">🔄 Auto Sync</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">🎯 Deployment</div>
+            </div>
+        </div>
+        
+        <div class="demo-info">
+            <div class="demo-title">Workshop Demonstration</div>
+            Diese Seite wird über GitOps bereitgestellt und zeigt:<br>
+            ✓ Branch-basierte Deployments<br>
+            ✓ Automatische Synchronisation<br>
+            ✓ Deklarative Konfiguration<br>
+            ✓ Infrastructure as Code
+        </div>
+        
+        <div class="footer">
+            <strong>GitOps Training</strong> | Deployed via ArgoCD<br>
+            <span id="timestamp"></span>
+        </div>
+    </div>
+    
+    <script>
+        // Live timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            document.getElementById('timestamp').textContent = 
+                'Last updated: ' + now.toLocaleString('de-DE');
+        }
+        updateTimestamp();
+        setInterval(updateTimestamp, 30000);
+        
+        // Add some interactivity
+        document.querySelector('.logo').addEventListener('click', function() {
+            this.style.transform = 'rotate(360deg)';
+            this.style.transition = 'transform 0.6s ease';
+            setTimeout(() => {
+                this.style.transform = 'rotate(0deg)';
+            }, 600);
+        });
+    </script>
+</body>
+</html>
